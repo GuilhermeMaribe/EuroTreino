@@ -26,7 +26,7 @@ $app->group('/alunos', function() use ($app) {
     $app->delete('/{id}', 'AlunoController:deletar');
 })->add('GerenteController:validarToken');
 
-$app->group('/treinos', function() use ($app) {
+$app->group('/treinos/aluno', function() use ($app) {
     $app->get('/{id}','TreinoController:buscarPorAluno');    
 });
 
@@ -36,9 +36,6 @@ $app->group('/treinos', function() use ($app) {
     $app->put('/{id}','TreinoController:atualizar');
     $app->delete('/{id}', 'TreinoController:deletar');
 })->add('GerenteController:validarToken');
-
-
-
 
 $app->post('/gerentes','GerenteController:inserir');
 $app->post('/auth','GerenteController:autenticar');

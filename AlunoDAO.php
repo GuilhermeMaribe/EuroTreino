@@ -35,7 +35,7 @@
             $comando = $pdo->prepare($qAtualizar);
             $comando->bindParam(":nome",$aluno->nome);
             $comando->bindParam(":cpf",$aluno->cpf);
-            $comando->bindParam(":dtNascimento",$aluno->dtNascimento);
+            $comando->bindParam(":dtNascimento",$aluno->dtnascimento);
             $comando->bindParam(":id",$aluno->id);
             $comando->execute();
             return $aluno;        
@@ -49,7 +49,7 @@
     		$comando->execute();
             $alunos=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
-			    $alunos[] = new Aluno($row->id, $row->nome, $row->cpf, $row->dtNascimento);
+			    $alunos[] = new Aluno($row->id, $row->nome, $row->cpf, $row->dtnascimento);
             }
             return $alunos;
         }
@@ -62,7 +62,7 @@
 		    $comando->bindParam ('id', $id);
 		    $comando->execute();
 		    $result = $comando->fetch(PDO::FETCH_OBJ);
-		    return new Aluno($result->id, $result->nome, $result->cpf, $result->dtNascimento);           
+		    return new Aluno($result->id, $result->nome, $result->cpf, $result->dtnascimento);           
         }
 
         public function buscarPorNome($nome)

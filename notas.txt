@@ -25,8 +25,6 @@ INSERT ALUNO JSON
 "nome":"guilherme",
 "cpf":"12345678909",
 "dtNascimento":"15/11/1995"
-"login":"gui",
-"senha":"gui"
 }
 
 UPDATE ALUNO JSON
@@ -53,16 +51,16 @@ UPDATE EQUIPAMENTO JSON
 =======================================================================
 INSERT TREINO JSON
 {
-    "alunoid":00,
-    "equipamentoid":00,
-    "carga":00
+    "alunoid":"2",
+    "equipamentoid":"2",
+    "carga":"80"
 }
 
 UPDATE TREINO JSON
 {
-    "alunoid":00,
-    "equipamentoid":00,
-    "carga":00
+    "alunoid":"2",
+    "equipamentoid":"2",
+    "carga":"80"
 }
 
 

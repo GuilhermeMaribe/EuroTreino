@@ -14,7 +14,9 @@ class TreinoController {
     public function buscarPorAluno($request, $response, $args) {
         $id = $args['id'];        
         $dao= new TreinoDAO;    
-        $treinos = $dao->buscarPorAluno($id);        
+        $treinos = $dao->buscarPorAluno($id);
+        
+        
         return $response->withJson($treinos);
     }
 
@@ -37,10 +39,8 @@ class TreinoController {
 
     public function deletar($request, $response, $args) {
         $id = $args['id'];
-
         $dao = new TreinoDAO;
-        $treino = $dao->deletar($id);
-    
+        $treino = $dao->deletar($id);    
         return $response->withJson($treino);  
     }
 }
