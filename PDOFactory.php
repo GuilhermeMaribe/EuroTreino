@@ -8,7 +8,7 @@
             if(!isset($pdo)){
 				$conexao = "pgsql:host=localhost;dbname=app_eurotreino";
 				$usuario = "postgres";
-				$senha = "postgres";
+				$senha = "postgresql";
 
                 $pdo = new PDO($conexao, $usuario, $senha); 
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -1,0 +1,33 @@
+CREATE TABLE public.aluno
+(
+    id serial NOT NULL PRIMARY KEY,
+    nome character varying(30) NOT NULL,
+    dtNascimento character varying(8) NOT NULL,
+    cpf character varying(14) NOT NULL
+)
+
+CREATE TABLE public.equipamento
+(
+    id serial NOT NULL PRIMARY KEY,
+    nome character varying(30) NOT NULL,
+    descricao character varying(100) NOT NULL
+)
+
+
+CREATE TABLE public.treino
+(
+    id serial NOT NULL PRIMARY KEY,
+    alunoid character varying(30) NOT NULL,
+    equipamentoId character varying(100) NOT NULL
+)
+
+
+CREATE TABLE public.gerente
+(
+    id serial NOT NULL PRIMARY KEY,
+    nome character varying(30) NOT NULL,
+    dtNascimento date NOT NULL,
+    cpf character varying(14) NOT NULL,
+    login character varying(30) NOT NULL,
+    senha character varying(30) NOT NULL
+)

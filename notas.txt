@@ -1,0 +1,71 @@
+php -S localhost:8080
+
+INSERT GERENTE JSON
+{
+"nome":"kevin",
+"cpf":"86299719087",
+"dtnascimento":"11121995",
+"login":"kvngamer",
+"senha":"123456"
+}
+AUTH GERENTE JSON
+{
+    "login":"kvngamer",
+    "senha":"123456"
+}
+Retorno esperado::
+{
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiMTEiLCJub21lIjoia2V2aW4ifQ.rSfVzg9DfV4MUZTekNSvg1x7hZuoXrzQEq7vIBb1d3Q"
+}
+
+
+=======================================================================
+INSERT ALUNO JSON
+{
+"nome":"guilherme",
+"cpf":"12345678909",
+"dtNascimento":"15/11/1995"
+"login":"gui",
+"senha":"gui"
+}
+
+UPDATE ALUNO JSON
+{
+"nome":"pedrinho",
+"cpf":"1234564509",
+"dtNascimento":"09/10/1995"
+}
+
+
+=======================================================================
+INSERT EQUIPAMENTO JSON
+{
+    "nome":"supino",
+    "descricao":"Empurar peso pra ficar monstrao"
+}
+
+UPDATE EQUIPAMENTO JSON
+{
+    "nome":"supino",
+    "descricao":"Empurar peso pra ficar monstrao"
+}
+
+=======================================================================
+INSERT TREINO JSON
+{
+    "alunoid":00,
+    "equipamentoid":00,
+    "carga":00
+}
+
+UPDATE TREINO JSON
+{
+    "alunoid":00,
+    "equipamentoid":00,
+    "carga":00
+}
+
+
+
+
+

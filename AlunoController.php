@@ -21,24 +21,29 @@ class AlunoController {
         return $response->withJson($aluno);
     }
 
+    public function buscarPorNome($request, $response, $args) {
+        $nome = $args['nome'];
+        
+        $dao= new AlunoDAO;    
+        $aluno = $dao->buscarPorLogin($nome);
+        
+        return $response->withJson($aluno);
+    }
+
     public function inserir( $request, $response, $args) {
         $p = $request->getParsedBody();
-        $aluno = new Aluno(0,$p['nome'],$p['cpf'],$p['dtNascimento']);
-    
+        $aluno = new Aluno(0,$p['nome'],$p['cpf'],$p['dtNascimento']);    
         $dao = new AlunoDAO;
-        $aluno = $dao->inserir($aluno);
-    
+        $aluno = $dao->inserir($aluno);    
         return $response->withJson($aluno,201);    
     }
     
     public function atualizar($request, $response, $args) {
         $id = $args['id'];
         $p = $request->getParsedBody();
-        $aluno = new Aluno($id, $p['nome'],$p['cpf'],$p['dtNascimento']);
-    
+        $aluno = new Aluno($id, $p['nome'],$p['cpf'],$p['dtNascimento']);    
         $dao = new AlunoDAO;
-        $aluno = $dao->atualizar($aluno);
-    
+        $aluno = $dao->atualizar($aluno);    
         return $response->withJson($aluno);    
     }
 

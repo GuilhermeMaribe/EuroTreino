@@ -6,7 +6,7 @@
     {
         public function inserir(Aluno $aluno)
         {
-            $qInserir = "INSERT INTO aluno(nome,cpf,dtNascimento) VALUES (:nome,:cpf,:dtNascimento)";            
+            $qInserir = "INSERT INTO aluno(nome, cpf, dtNascimento) VALUES (:nome, :cpf, :dtNascimento)";            
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($qInserir);
             $comando->bindParam(":nome",$aluno->nome);
@@ -49,7 +49,7 @@
     		$comando->execute();
             $alunos=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
-			    $alunos[] = new Aluno($row->id,$row->nome,$row->cpf,$row->dtNascimento);
+			    $alunos[] = new Aluno($row->id, $row->nome, $row->cpf, $row->dtNascimento);
             }
             return $alunos;
         }
@@ -62,7 +62,18 @@
 		    $comando->bindParam ('id', $id);
 		    $comando->execute();
 		    $result = $comando->fetch(PDO::FETCH_OBJ);
-		    return new Aluno($result->id,$result->nome,$result->cpf,$result->dtNascimento);           
+		    return new Aluno($result->id, $result->nome, $result->cpf, $result->dtNascimento);           
+        }
+
+        public function buscarPorNome($nome)
+        {
+ 		    $query = 'SELECT * FROM aluno WHERE nome=:nome';		
+            $pdo = PDOFactory::getConexao(); 
+		    $comando = $pdo->prepare($query);
+		    $comando->bindParam ('login', $nome);
+		    $comando->execute();
+		    $result = $comando->fetch(PDO::FETCH_OBJ);
+		    return new Aluno($result->id, $result->nome, $result->cpf, $result->dtNascimento);           
         }
     }
 ?>
